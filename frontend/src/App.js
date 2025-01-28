@@ -42,6 +42,7 @@ function App() {
 
     await axios.post(`https://my-app-mfn5.onrender.com/api/menus/${selectedMenu._id}/items`, newItem);
     setNewItem({ name: "", description: "", price: "" });
+    fetchMenus();
     handleMenuSelect(selectedMenu._id);
   };
 
