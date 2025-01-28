@@ -14,7 +14,7 @@ function App() {
 
   // Fetch menus from the backend
   const fetchMenus = async () => {
-    const response = await axios.get("http://localhost:5000/api/menus");
+    const response = await axios.get("https://my-app-mfn5.onrender.com/api/menus");
     setMenus(response.data);
   };
 
@@ -23,7 +23,7 @@ function App() {
     e.preventDefault();
     if (newMenu.name.trim() === "") return alert("Menu name is required");
 
-    await axios.post("http://localhost:5000/api/menus", newMenu);
+    await axios.post("https://my-app-mfn5.onrender.com/api/menus", newMenu);
     setNewMenu({ name: "", description: "" });
     fetchMenus();
   };
@@ -40,7 +40,7 @@ function App() {
     if (!selectedMenu) return alert("No menu selected");
     if (newItem.name.trim() === "" || newItem.price === "") return alert("Item name and price are required");
 
-    await axios.post(`http://localhost:5000/api/menus/${selectedMenu._id}/items`, newItem);
+    await axios.post(`https://my-app-mfn5.onrender.com/api/menus/${selectedMenu._id}/items`, newItem);
     setNewItem({ name: "", description: "", price: "" });
     handleMenuSelect(selectedMenu._id);
   };
